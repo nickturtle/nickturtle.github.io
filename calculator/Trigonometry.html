@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator-Trigonometry</title>
+    <style>
+        .bordered{border:solid black 1px;}
+    </style>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="Operators.html">Operators</a></li>
+        <li class="active"><a href="Trigonometry.html">Trigonometry</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+    <h1>Calculator-Trigonometry</h1>
+    <br />
+    <div class="row">
+    <div class="col-md-2"><select id="function"><option>sin of</option><option>cos of</option><option>tan of</option><option>arcsin of</option><option>arccos of</option><option>arctan of</option></select></div>
+    <div class="col-md-3">Num: <input id="no" /></div>
+    <div class="col-md-3">Mode: <select id="mode"><option>radians</option><option>degrees</option><option>gradians</option></select></div>
+    <div class="col-md-2">=<span id="ans"></span></div>
+    <div class="col-md-2"><button class="btn btn-primary" onclick="calc()">Calculate</button></div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row">
+    <div class="col-md-4 bordered">"Sin of" calculates the sine of  the number in radians, degrees, or gradians</div>
+    <div class="col-md-4 bordered">"Cos of" calculates the cosine of the number in radians, degrees, or gradians</div>
+    <div class="col-md-4 bordered">"Tan of" calculates the tangent of the number in radians, degrees, or gradians</div>
+    </div>
+    <br />
+    <div class="row">
+    <div class="col-md-4 bordered">"Arcsin of" calculates the arcsine of the number in radians, degrees, or gradians</div>
+    <div class="col-md-4 bordered">"Arccos of" calculates the arccosine of the number in radians, degrees, or gradians</div>
+    <div class="col-md-4 bordered">"Arctan of" calculates the arctangent of the number in radians, degrees, or gradians</div>
+    </div>
+    </div>
+    <script>
+        function calc()
+        {   
+            var no=parseFloat(document.getElementById("no").value);
+            var m=document.getElementById("mode");
+            var mod=m.options[m.selectedIndex].text;
+            var f=document.getElementById("function");
+            var fun=f.options[f.selectedIndex].text;
+            var pi=Math.PI;
+            var sin=Math.sin(no);
+            var sind=Math.sin(no*pi/180);
+            var sing=Math.sin(no*pi/200);
+            var cos=Math.cos(no);
+            var cosd=Math.cos(no*pi/180);
+            var cosg=Math.cos(no*pi/200);
+            var tan=Math.tan(no);
+            var tand=Math.tan(no*pi/180);
+            var tang=Math.tan(no*pi/200);
+            var asin=Math.asin(no);
+            var acos=Math.acos(no);
+            var atan=Math.atan(no);
+            if (fun=="sin of")
+                {if (mod=="radians"){document.getElementById("ans").innerHTML=sin;}
+                else if (mod=="degrees"){document.getElementById("ans").innerHTML=sind;}
+                else if (mod=="gradians"){document.getElementById("ans").innerHTML=sing;}}
+            else if (fun=="cos of")
+                {if (mod=="radians"){document.getElementById("ans").innerHTML=cos;}
+                else if (mod=="degrees"){document.getElementById("ans").innerHTML=cosd;}
+                else if (mod=="gradians"){document.getElementById("ans").innerHTML=cosg;}}
+            else if (fun=="tan of")
+                {if (mod=="radians"){document.getElementById("ans").innerHTML=tan;}
+                else if (mod=="degrees"){document.getElementById("ans").innerHTML=tand;}
+                else if (mod=="gradians"){document.getElementById("ans").innerHTML=tang;}}
+            else if (fun=="arcsin of")
+                {if (mod=="radians"){document.getElementById("ans").innerHTML=asin;}
+                else if (mod=="degrees"){document.getElementById("ans").innerHTML=asin*180/pi;}
+                else if (mod=="gradians"){document.getElementById("ans").innerHTML=asin*200/pi;}}
+            else if (fun=="arccos of")
+                {if (mod=="radians"){document.getElementById("ans").innerHTML=acos;}
+                else if (mod=="degrees"){document.getElementById("ans").innerHTML=acos*180/pi;}
+                else if (mod=="gradians"){document.getElementById("ans").innerHTML=acos*200/pi;}}
+            else if (fun=="arctan of")
+                {if (mod=="radians"){document.getElementById("ans").innerHTML=atan;}
+                else if (mod=="degrees"){document.getElementById("ans").innerHTML=atan*180/pi;}
+                else if (mod=="gradians"){document.getElementById("ans").innerHTML=atan*200/pi;}}
+        }
+    </script>
+  </body>
+</html>
