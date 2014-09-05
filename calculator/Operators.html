@@ -1,0 +1,69 @@
+nickturtle.github.io
+====================
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator-Operators</title>
+    <style>
+        .bordered{border:solid black 1px;}
+    </style>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="Operators.html">Operators</a></li>
+        <li><a href="Trigonometry.html">Trigonometry</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+    <h1>Calculator-Operators</h1>
+    <br />
+    <div class="row">
+    <div class="col-md-3">First Num: <input id="no1" /></div>
+    <div class="col-md-2"><select id="operator"><option>plus</option><option>minus</option><option>times</option><option>divided by</option><option>to the power of</option><option>to the logarithm of</option></select></div>
+    <div class="col-md-3">Second Num: <input id="no2"></div>
+    <div class="col-md-2">=<span id="ans"></span></div>
+    <div class="col-md-2"><button class="btn btn-primary" onclick="calc()">Calculate</button></div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row">
+    <div class="col-md-3 bordered">"Plus" adds the two numbers</div>
+    <div class="col-md-3 bordered">"Minus" subtracts the two numbers</div>
+    <div class="col-md-3 bordered">"Times" multiplies the two numbers</div>
+    <div class="col-md-3 bordered">"Divided by" divides the two numbers</div>
+    </div>
+    <br />
+    <div class="row">
+    <div class="col-md-6 bordered">"To the power of" calculates the exponent of the first number and the second number as the exponent</div>
+    <div class="col-md-6 bordered">"To the logarithm of" calculates the logarithm of the first number and the second number as the base</div>
+    </div>
+    </div>
+    <script>
+        function calc()
+        {   
+            var no1=parseFloat(document.getElementById("no1").value);
+            var no2=parseFloat(document.getElementById("no2").value);
+            var o=document.getElementById("operator");
+            var op=o.options[o.selectedIndex].text;
+            var pow=Math.pow(no1,no2);
+            var log=Math.log(no1)/Math.log(no2);
+            if (op=="plus"){document.getElementById("ans").innerHTML=no1+no2;}
+            else if (op=="minus"){document.getElementById("ans").innerHTML=no1-no2;}
+            else if (op=="times"){document.getElementById("ans").innerHTML=no1*no2;}
+            else if (op=="divided by"){document.getElementById("ans").innerHTML=no1/no2;}
+            else if (op=="to the power of"){document.getElementById("ans").innerHTML=pow;}
+            else if (op=="to the logarithm of"){document.getElementById("ans").innerHTML=log;}
+        }
+    </script>
+  </body>
+</html>
