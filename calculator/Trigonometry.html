@@ -8,7 +8,7 @@
     <style>
         .bordered{border:solid black 1px;}
     </style>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -25,7 +25,7 @@
         <h1>Calculator-Trigonometry</h1>
         <br />
         <div class="row">
-            <div class="col-md-2"><select id="function"><option>sin of</option><option>cos of</option><option>tan of</option><option>sinh of</option><option>cosh of</option><option>tanh of</option><option>arcsin of</option><option>arcos of</option><option>arctan of</option><option>arcsinh of</option><option>arcosh of</option><option>arctanh of</option></select></div>
+            <div class="col-md-2"><select id="function"><option>sin of</option><option>cos of</option><option>tan of</option><option>sinh of</option><option>cosh of</option><option>tanh of</option><option>arcsin of</option><option>arcos of</option><option>arctan of</option><option>arsinh of</option><option>arcosh of</option><option>artanh of</option></select></div>
             <div class="col-md-3">Num: <input id="no" /></div>
             <div class="col-md-3">Mode: <select id="mode"><option>radians</option><option>degrees</option><option>gradians</option></select></div>
             <div class="col-md-2">=<span id="ans"></span></div>
@@ -41,9 +41,9 @@
         </div>
         <br />
         <div class="row">
-            <div class="col-md-4 bordered">"Sinh of" calculates the hyperbolic sine of  the number in radians, degrees, or gradians</div>
-            <div class="col-md-4 bordered">"Cosh of" calculates the hyperbolic cosine of the number in radians, degrees, or gradians</div>
-            <div class="col-md-4 bordered">"Tanh of" calculates the hyperbolic tangent of the number in radians, degrees, or gradians</div>
+            <div class="col-md-4 bordered">"Sinh of" calculates the hyperbolic sine of the number</div>
+            <div class="col-md-4 bordered">"Cosh of" calculates the hyperbolic cosine of the number</div>
+            <div class="col-md-4 bordered">"Tanh of" calculates the hyperbolic tangent of the number</div>
         </div>
         <br />
         <div class="row">
@@ -53,15 +53,15 @@
         </div>
         <br />
         <div class="row">
-            <div class="col-md-4 bordered">"Arcsinh of" calculates the hyperbolic arcsine of  the number in radians,    degrees, or gradians</div>
-            <div class="col-md-4 bordered">"Arcosh of" calculates the hyperbolic arcosine of the number in radians, degrees, or gradians</div>
-            <div class="col-md-4 bordered">"Arctanh of" calculates the hyperbolic arctangent of the number in radians, degrees, or gradians</div>
+            <div class="col-md-4 bordered">"Arsinh of" calculates the hyperbolic arsine of  the number</div>
+            <div class="col-md-4 bordered">"Arcosh of" calculates the hyperbolic arcosine of the number</div>
+            <div class="col-md-4 bordered">"Artanh of" calculates the hyperbolic artangent of the number</div>
         </div>
         <br />
         <br />
         <br />
         <div class="row">
-            <div class="col-md-offset-3">Warning: There might be some inaccuracy in the answers; it is the usually the best to round all answers to not more than ten significant figures.</div>
+            <div class="col-md-6 col-md-offset-3">Warning: There might be some inaccuracy in the answers; it is the usually the best to round all answers to not more than ten significant figures.</div>
         </div>
     </div>
     </div>
@@ -86,20 +86,14 @@
             var tand=Math.tan(nod);
             var tang=Math.tan(nog);
             var sinh=(Math.exp(no)-Math.exp(-no))/2;
-            var sinhd=(Math.exp(nod)-Math.exp(-nod))/2;
-            var sinhg=(Math.exp(nog)-Math.exp(-nog))/2;
             var cosh=(Math.exp(no)+Math.exp(-no))/2;
-            var coshd=(Math.exp(nod)+Math.exp(-nod))/2;
-            var coshg=(Math.exp(nog)+Math.exp(-nog))/2;
             var tanh=sinh/cosh;
-            var tanhd=sinhd/coshd;
-            var tanhg=sinhg/coshg;
             var asin=Math.asin(no);
             var acos=Math.acos(no);
             var atan=Math.atan(no);
             var asinh=Math.log(no+Math.pow((Math.pow(no,2)+1),0.5));
             var acosh=Math.log(no+Math.pow((Math.pow(no,2)-1),0.5));
-            var atanh=asinh/acosh;
+            var atanh=Math.log((1+no)/(1-no))/2;
             if (fun=="sin of")
                 {if (mod=="radians"){document.getElementById("ans").innerHTML=sin;}
                 else if (mod=="degrees"){document.getElementById("ans").innerHTML=sind;}
@@ -113,22 +107,15 @@
                 else if (mod=="degrees"){document.getElementById("ans").innerHTML=tand;}
                 else if (mod=="gradians"){document.getElementById("ans").innerHTML=tang;}}
             else if (fun=="sinh of")
-                {if (mod=="radians"){document.getElementById("ans").innerHTML=sinh;}
-                else if (mod=="degrees"){document.getElementById("ans").innerHTML=sinhd;}
-                else if (mod=="gradians"){document.getElementById("ans").innerHTML=sinhg;}}
+                {document.getElementById("ans").innerHTML=sinh;}
             else if (fun=="cosh of")
-                {if (mod=="radians"){document.getElementById("ans").innerHTML=cosh;}
-                else if (mod=="degrees"){document.getElementById("ans").innerHTML=coshd;}
-                else if (mod=="gradians"){document.getElementById("ans").innerHTML=coshg;}}
-            else if (fun=="tanh of")
-                {if (mod=="radians"){document.getElementById("ans").innerHTML=tanh;}
-                else if (mod=="degrees"){document.getElementById("ans").innerHTML=tanhd;}
-                else if (mod=="gradians"){document.getElementById("ans").innerHTML=tanhg;}}
+                {document.getElementById("ans").innerHTML=cosh;}
+            else if (fun=="tanh of"){document.getElementById("ans").innerHTML=tanh;}
             else if (fun=="arcsin of")
                 {if (mod=="radians"){document.getElementById("ans").innerHTML=asin;}
                 else if (mod=="degrees"){document.getElementById("ans").innerHTML=asin*180/pi;}
                 else if (mod=="gradians"){document.getElementById("ans").innerHTML=asin*200/pi;}}
-            else if (fun=="arccos of")
+            else if (fun=="arcos of")
                 {if (mod=="radians"){document.getElementById("ans").innerHTML=acos;}
                 else if (mod=="degrees"){document.getElementById("ans").innerHTML=acos*180/pi;}
                 else if (mod=="gradians"){document.getElementById("ans").innerHTML=acos*200/pi;}}
@@ -136,18 +123,12 @@
                 {if (mod=="radians"){document.getElementById("ans").innerHTML=atan;}
                 else if (mod=="degrees"){document.getElementById("ans").innerHTML=atan*180/pi;}
                 else if (mod=="gradians"){document.getElementById("ans").innerHTML=atan*200/pi;}}
-            else if (fun=="arcsinh of")
-                {if (mod=="radians"){document.getElementById("ans").innerHTML=asinh;}
-                else if (mod=="degrees"){document.getElementById("ans").innerHTML=asinh*180/pi;}
-                else if (mod=="gradians"){document.getElementById("ans").innerHTML=asinh*200/pi;}}
+            else if (fun=="arsinh of")
+                {document.getElementById("ans").innerHTML=asinh;}
             else if (fun=="arcosh of")
-                {if (mod=="radians"){document.getElementById("ans").innerHTML=acosh;}
-                else if (mod=="degrees"){document.getElementById("ans").innerHTML=acosh*180/pi;}
-                else if (mod=="gradians"){document.getElementById("ans").innerHTML=acosh*200/pi;}}
-            else if (fun=="arctanh of")
-                {if (mod=="radians"){document.getElementById("ans").innerHTML=atanh;}
-                else if (mod=="degrees"){document.getElementById("ans").innerHTML=atanh*180/pi;}
-                else if (mod=="gradians"){document.getElementById("ans").innerHTML=atanh*200/pi;}}
+                {document.getElementById("ans").innerHTML=acosh;}
+            else if (fun=="artanh of")
+                {document.getElementById("ans").innerHTML=atanh;}
         }
     </script>
   </body>
